@@ -52,7 +52,7 @@
   </nav>
   <!-- <img src="./img/1.png" alt=""> -->
   <div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
+    <div class="col-sm-10 col-sm-offset-1">
       <div class="panel panel-default">
         <div class="panel-heading">
           <h3 class="panel-title">
@@ -70,17 +70,19 @@
                 <option value="M2">本不ok-中等强度</option>
                 <option value="L">高强度地震</option>
               </select>
-              <span class="help-block helpBlock1" style="display: none;">请先选择地震强度</span>
+              <span class="help-block helpBlock1" style="">请先选择地震强度</span>
             </div>
             <div class="form-group formGroup2">
               <label for="inputfile">上传数据文件</label>
               <input type="file" id="fileInput" class="form-control" onChange="processFiles(this.files)">
-              <span class="help-block helpBlock2" style="display: none;">请先上传数据文件</span>
+              <span class="help-block helpBlock2" style="">请先上传数据文件</span>
             </div>
             <button type="submit" class="btn btn-default">提交</button>
           </form>
         </div>
       </div>
+    </div>
+    <div class="col-sm-10 col-sm-offset-1">
       <div class="panel panel-default">
         <div class="panel-heading">
           <h3 class="panel-title">
@@ -89,60 +91,171 @@
         </div>
         <div class="panel-body">
           <div class="page1" style="display: none;">
-            <img src="./img/L.png" style="width: 120px;" alt="">
-            <img src="./img/箭头.png" style="width: 60px;" alt="">
-            <img src="./img/M1.png" style="width: 120px;" alt="">
-            <img src="./img/箭头.png" style="width: 60px;" alt="">
-            <img src="./img/E1.png" style="width: 120px;" alt="">
-            <img src="./img/箭头.png" style="width: 60px;" alt="">
-            <span style="position: relative;left: -45px;top: -20px;font-size: 18px;">无</span>
-            <img src="./img/C1.png" style="width: 120px;" alt="">
+            <img src="./img/L.png" style="width: 100px;" alt="">
+            <img src="./img/箭头.png" style="width: 40px;" alt="">
+            <img src="./img/M1.png" style="width: 100px;" alt="">
+            <img src="./img/箭头.png" style="width: 40px;" alt="">
+            <img src="./img/E1.png" style="width: 100px;" alt="">
+            <img src="./img/箭头.png" style="width: 40px;" alt="">
+            <span style="position: relative;left: -15px;top: -20px;font-size: 14px;margin-left: -20px;">无</span>
+            <img src="./img/C1.png" style="width: 100px;" alt="">
+          </div>
+          <div class="page2" style="display: none;">
+            <img src="./img/L.png" style="width: 100px;" alt="">
+            <img src="./img/箭头.png" style="width: 40px;" alt="">
+            <img src="./img/M1.png" style="width: 100px;" alt="">
+            <img src="./img/箭头.png" style="width: 40px;" alt="">
+            <img src="./img/E1.png" style="width: 100px;" alt="">
+            <img src="./img/箭头.png" style="width: 40px;" alt="">
+            <span style="position: relative;left: -35px;top: -20px;font-size: 14px;">有</span>
+            <img src="./img/M4.png" style="width: 100px;margin-left: -20px;" alt="">
+            <img src="./img/箭头.png" style="width: 40px;" alt="">
+            <img src="./img/E4.png" style="width: 100px;" alt="">
+            <img src="./img/箭头.png" style="width: 40px;" alt="">
+            <span style="position: relative;left: -45px;top: -20px;font-size: 14px;">不及时</span>
+            <img src="./img/M5.png" style="width: 100px;margin-left: -40px;" alt="">
+            <img src="./img/箭头.png" style="width: 40px;" alt="">
+            <span style="position: relative;left: -40px;top: -20px;font-size: 14px;">有效</span>
+            <img src="./img/C4.png" style="width: 100px;margin-left: -40px;" alt="">
+          </div>
+          <div class="page3" style="display: none;">
+            <img src="./img/L.png" style="width: 100px;" alt="">
+            <img src="./img/箭头.png" style="width: 40px;" alt="">
+            <img src="./img/M1.png" style="width: 100px;" alt="">
+            <img src="./img/箭头.png" style="width: 40px;" alt="">
+            <img src="./img/E1.png" style="width: 100px;" alt="">
+            <img src="./img/箭头.png" style="width: 40px;" alt="">
+            <span style="position: relative;left: -35px;top: -20px;font-size: 14px;">有</span>
+            <img src="./img/M4.png" style="width: 100px;margin-left: -20px;" alt="">
+            <img src="./img/箭头.png" style="width: 40px;" alt="">
+            <img src="./img/E4.png" style="width: 100px;" alt="">
+            <img src="./img/箭头.png" style="width: 40px;" alt="">
+            <span style="position: relative;left: -45px;top: -20px;font-size: 14px;">及时</span>
+            <img src="./img/C5.png" style="width: 100px;margin-left: -40px;" alt="">
           </div>
           <div class="page4" style="display: none;">
-            <img src="./img/L.png" style="width: 120px;" alt="">
-            <img src="./img/箭头.png" style="width: 60px;" alt="">
-            <img src="./img/M2.png" style="width: 120px;" alt="">
-            <img src="./img/箭头.png" style="width: 60px;" alt="">
-            <img src="./img/E2.png" style="width: 120px;" alt="">
-            <img src="./img/箭头.png" style="width: 60px;" alt="">
-            <span style="position: relative;left: -45px;top: -20px;font-size: 18px;">无</span>
-            <img src="./img/C2.png" style="width: 120px;" alt="">
+            <img src="./img/L.png" style="width: 100px;" alt="">
+            <img src="./img/箭头.png" style="width: 40px;" alt="">
+            <img src="./img/M2.png" style="width: 100px;" alt="">
+            <img src="./img/箭头.png" style="width: 40px;" alt="">
+            <img src="./img/E2.png" style="width: 100px;" alt="">
+            <img src="./img/箭头.png" style="width: 40px;" alt="">
+            <span style="position: relative;left: -15px;top: -20px;font-size: 14px;margin-left: -20px;">无</span>
+            <img src="./img/C2.png" style="width: 100px;" alt="">
           </div>
           <div class="page5" style="display: none;">
-            <img src="./img/L.png" style="width: 120px;" alt="">
-            <img src="./img/箭头.png" style="width: 60px;" alt="">
-            <img src="./img/M3.png" style="width: 120px;" alt="">
-            <img src="./img/箭头.png" style="width: 60px;" alt="">
-            <img src="./img/E2.png" style="width: 120px;" alt="">
-            <img src="./img/箭头.png" style="width: 60px;" alt="">
-            <span style="position: relative;left: -45px;top: -20px;font-size: 18px;">无</span>
-            <img src="./img/C2.png" style="width: 120px;" alt="">
+            <img src="./img/L.png" style="width: 100px;" alt="">
+            <img src="./img/箭头.png" style="width: 40px;" alt="">
+            <img src="./img/M3.png" style="width: 100px;" alt="">
+            <img src="./img/箭头.png" style="width: 40px;" alt="">
+            <img src="./img/E2.png" style="width: 100px;" alt="">
+            <img src="./img/箭头.png" style="width: 40px;" alt="">
+            <span style="position: relative;left: -15px;top: -20px;font-size: 14px;margin-left: -20px;">无</span>
+            <img src="./img/C2.png" style="width: 100px;" alt="">
           </div>
           <div class="page6" style="display: none;">
-            <img src="./img/L.png" style="width: 120px;" alt="">
-            <img src="./img/箭头.png" style="width: 60px;" alt="">
-            <img src="./img/M2.png" style="width: 120px;" alt="">
-            <img src="./img/箭头.png" style="width: 60px;" alt="">
-            <img src="./img/E2.png" style="width: 120px;" alt="">
-            <img src="./img/箭头.png" style="width: 60px;" alt="">
-            <span style="position: relative;left: -45px;top: -20px;font-size: 18px;">有</span>
-            <img src="./img/E3.png" style="width: 120px;" alt="">
-            <img src="./img/箭头.png" style="width: 60px;" alt="">
-            <span style="position: relative;left: -45px;top: -20px;font-size: 18px;">无</span>
-            <img src="./img/C3.png" style="width: 120px;" alt="">
+            <img src="./img/L.png" style="width: 100px;" alt="">
+            <img src="./img/箭头.png" style="width: 40px;" alt="">
+            <img src="./img/M2.png" style="width: 100px;" alt="">
+            <img src="./img/箭头.png" style="width: 40px;" alt="">
+            <img src="./img/E2.png" style="width: 100px;" alt="">
+            <img src="./img/箭头.png" style="width: 40px;" alt="">
+            <span style="position: relative;left: -15px;top: -20px;font-size: 14px;margin-left: -20px;">有</span>
+            <img src="./img/E3.png" style="width: 100px;" alt="">
+            <img src="./img/箭头.png" style="width: 40px;" alt="">
+            <span style="position: relative;left: -15px;top: -20px;font-size: 14px;margin-left: -20px;">无</span>
+            <img src="./img/C3.png" style="width: 100px;" alt="">
           </div>
           <div class="page7" style="display: none;">
-            <img src="./img/L.png" style="width: 120px;" alt="">
-            <img src="./img/箭头.png" style="width: 60px;" alt="">
-            <img src="./img/M3.png" style="width: 120px;" alt="">
-            <img src="./img/箭头.png" style="width: 60px;" alt="">
-            <img src="./img/E2.png" style="width: 120px;" alt="">
-            <img src="./img/箭头.png" style="width: 60px;" alt="">
-            <span style="position: relative;left: -45px;top: -20px;font-size: 18px;">有</span>
-            <img src="./img/E3.png" style="width: 120px;" alt="">
-            <img src="./img/箭头.png" style="width: 60px;" alt="">
-            <span style="position: relative;left: -45px;top: -20px;font-size: 18px;">无</span>
-            <img src="./img/C3.png" style="width: 120px;" alt="">
+            <img src="./img/L.png" style="width: 100px;" alt="">
+            <img src="./img/箭头.png" style="width: 40px;" alt="">
+            <img src="./img/M3.png" style="width: 100px;" alt="">
+            <img src="./img/箭头.png" style="width: 40px;" alt="">
+            <img src="./img/E2.png" style="width: 100px;" alt="">
+            <img src="./img/箭头.png" style="width: 40px;" alt="">
+            <span style="position: relative;left: -15px;top: -20px;font-size: 14px;margin-left: -20px;">有</span>
+            <img src="./img/E3.png" style="width: 100px;" alt="">
+            <img src="./img/箭头.png" style="width: 40px;" alt="">
+            <span style="position: relative;left: -15px;top: -20px;font-size: 14px;margin-left: -20px;">无</span>
+            <img src="./img/C3.png" style="width: 100px;" alt="">
+          </div>
+          <div class="page8" style="display: none;">
+            <img src="./img/L.png" style="width: 100px;" alt="">
+            <img src="./img/箭头.png" style="width: 40px;" alt="">
+            <img src="./img/M2.png" style="width: 100px;" alt="">
+            <img src="./img/箭头.png" style="width: 40px;" alt="">
+            <img src="./img/E2.png" style="width: 100px;" alt="">
+            <img src="./img/箭头.png" style="width: 40px;" alt="">
+            <span style="position: relative;left: -15px;top: -20px;font-size: 14px;margin-left: -20px;">有</span>
+            <img src="./img/E3.png" style="width: 100px;" alt="">
+            <img src="./img/箭头.png" style="width: 40px;" alt="">
+            <span style="position: relative;left: -15px;top: -20px;font-size: 14px;margin-left: -20px;">有</span>
+            <img src="./img/M4.png" style="width: 100px;" alt="">
+            <img src="./img/箭头.png" style="width: 40px;" alt="">
+            <img src="./img/E4.png" style="width: 100px;" alt="">
+            <img src="./img/箭头.png" style="width: 40px;" alt="">
+            <span style="position: relative;left: -15px;top: -20px;font-size: 14px;margin-left: -30px;">及时</span>
+            <img src="./img/C5.png" style="width: 100px;" alt="">
+          </div>
+          <div class="page9" style="display: none;">
+            <img src="./img/L.png" style="width: 100px;" alt="">
+            <img src="./img/箭头.png" style="width: 40px;" alt="">
+            <img src="./img/M3.png" style="width: 100px;" alt="">
+            <img src="./img/箭头.png" style="width: 40px;" alt="">
+            <img src="./img/E2.png" style="width: 100px;" alt="">
+            <img src="./img/箭头.png" style="width: 40px;" alt="">
+            <span style="position: relative;left: -15px;top: -20px;font-size: 14px;margin-left: -20px;">有</span>
+            <img src="./img/E3.png" style="width: 100px;" alt="">
+            <img src="./img/箭头.png" style="width: 40px;" alt="">
+            <span style="position: relative;left: -15px;top: -20px;font-size: 14px;margin-left: -20px;">有</span>
+            <img src="./img/M4.png" style="width: 100px;" alt="">
+            <img src="./img/箭头.png" style="width: 40px;" alt="">
+            <img src="./img/E4.png" style="width: 100px;" alt="">
+            <img src="./img/箭头.png" style="width: 40px;" alt="">
+            <span style="position: relative;left: -15px;top: -20px;font-size: 14px;margin-left: -30px;">及时</span>
+            <img src="./img/C5.png" style="width: 100px;" alt="">
+          </div>
+          <div class="page10" style="display: none;">
+            <img src="./img/L.png" style="width: 100px;" alt="">
+            <img src="./img/箭头.png" style="width: 40px;" alt="">
+            <img src="./img/M2.png" style="width: 100px;" alt="">
+            <img src="./img/箭头.png" style="width: 40px;" alt="">
+            <img src="./img/E2.png" style="width: 100px;" alt="">
+            <img src="./img/箭头.png" style="width: 40px;" alt="">
+            <span style="position: relative;left: -15px;top: -20px;font-size: 14px;margin-left: -20px;">有</span>
+            <img src="./img/E3.png" style="width: 100px;" alt="">
+            <img src="./img/箭头.png" style="width: 40px;" alt="">
+            <span style="position: relative;left: -15px;top: -20px;font-size: 14px;margin-left: -20px;">有</span>
+            <img src="./img/M4.png" style="width: 100px;" alt="">
+            <img src="./img/箭头.png" style="width: 40px;" alt="">
+            <img src="./img/E4.png" style="width: 100px;" alt="">
+            <img src="./img/箭头.png" style="width: 40px;" alt="">
+            <span style="position: relative;left: -15px;top: -20px;font-size: 14px;margin-left: -30px;">不及时</span>
+            <img src="./img/M5.png" style="width: 100px;" alt="">
+            <img src="./img/箭头.png" style="width: 40px;" alt="">
+            <span style="position: relative;left: -15px;top: -20px;font-size: 14px;margin-left: -30px;">有效</span>
+            <img src="./img/C4.png" style="width: 100px;" alt="">
+          </div>
+          <div class="page11" style="display: none;">
+            <img src="./img/L.png" style="width: 100px;" alt="">
+            <img src="./img/箭头.png" style="width: 40px;" alt="">
+            <img src="./img/M3.png" style="width: 100px;" alt="">
+            <img src="./img/箭头.png" style="width: 40px;" alt="">
+            <img src="./img/E2.png" style="width: 100px;" alt="">
+            <img src="./img/箭头.png" style="width: 40px;" alt="">
+            <span style="position: relative;left: -15px;top: -20px;font-size: 14px;margin-left: -20px;">有</span>
+            <img src="./img/E3.png" style="width: 100px;" alt="">
+            <img src="./img/箭头.png" style="width: 40px;" alt="">
+            <span style="position: relative;left: -15px;top: -20px;font-size: 14px;margin-left: -20px;">有</span>
+            <img src="./img/M4.png" style="width: 100px;" alt="">
+            <img src="./img/箭头.png" style="width: 40px;" alt="">
+            <img src="./img/E4.png" style="width: 100px;" alt="">
+            <img src="./img/箭头.png" style="width: 40px;" alt="">
+            <span style="position: relative;left: -15px;top: -20px;font-size: 14px;margin-left: -30px;">不及时</span>
+            <img src="./img/M5.png" style="width: 100px;" alt="">
+            <img src="./img/箭头.png" style="width: 40px;" alt="">
+            <span style="position: relative;left: -15px;top: -20px;font-size: 14px;margin-left: -30px;">有效</span>
+            <img src="./img/C4.png" style="width: 100px;" alt="">
           </div>
         </div>
       </div>
