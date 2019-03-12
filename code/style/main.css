@@ -46,3 +46,7 @@
     margin-left: 20%;
     float: left;
   }
+  .midButton {
+    text-align: center;
+    margin: 10px 0;
+  }
