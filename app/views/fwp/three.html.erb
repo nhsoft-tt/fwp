@@ -1,0 +1,431 @@
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="<%= root_path %>" style="font-size: 22px;font-weight: bold;">城市地下综合管廊地震事故灾害演化仿真模拟软件</a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav" style="float: right;">
+        <li><a href="<%= five_fwp_index_path %>">联系我们</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="row">
+  <div class="col-sm-10 col-sm-offset-1">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          灾害推演仿真
+        </h3>
+      </div>
+      <div class="panel-body">
+        <div class="col-sm-4 midButton buttonS">
+          <button class="btn btn-primary">低强度地震事故场景</button>
+        </div>
+        <div class="col-sm-4 midButton buttonM">
+          <button class="btn btn-primary">中等强度地震事故场景</button>
+        </div>
+        <div class="col-sm-4 midButton buttonL">
+          <button class="btn btn-primary">高强度地震事故场景</button>
+        </div>
+        <form role="form" onsubmit="return submitForm(this);">
+          <div class="form-group formGroup1">
+            <label for="name">选择地震强度</label>
+            <select id="select1" class="form-control">
+              <option value="null">请选择地震强度</option>
+              <option value="S">低强度地震</option>
+              <option value="M1">中等强度地震</option>
+              <option value="L">高强度地震</option>
+            </select>
+            <span class="help-block helpBlock1" style="">请先选择地震强度</span>
+          </div>
+          <div class="form-group formGroup2">
+            <label for="inputfile">上传数据文件</label>
+            <input type="file" id="fileInput" class="form-control" onChange="processFiles(this.files)">
+            <span class="help-block helpBlock2" style="">请先上传数据文件</span>
+          </div>
+          <button type="submit" class="btn btn-default">提交</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-10 col-sm-offset-1">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          路径展示
+        </h3>
+      </div>
+      <div class="panel-body">
+        <div class="page1" style="display: none;">
+          <img src="<%= asset_path 'L.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
+          <img src="<%= asset_path 'M1.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
+          <img src="<%= asset_path 'E1.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
+          <span style="position: relative;left: -15px;top: -20px;font-size: 14px;margin-left: -20px;">无</span>
+          <img src="<%= asset_path 'C1.png' %>" style="width: 100px;" alt="">
+        </div>
+        <div class="page2" style="display: none;">
+          <img src="<%= asset_path 'L.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
+          <img src="<%= asset_path 'M1.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
+          <img src="<%= asset_path 'E1.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
+          <span style="position: relative;left: -35px;top: -20px;font-size: 14px;">有</span>
+          <img src="<%= asset_path 'M4.png' %>" style="width: 100px;margin-left: -20px;" alt="">
+          <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
+          <img src="<%= asset_path 'E4.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
+          <span style="position: relative;left: -45px;top: -20px;font-size: 14px;">不及时</span>
+          <img src="<%= asset_path 'M5.png' %>" style="width: 100px;margin-left: -40px;" alt="">
+          <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
+          <span style="position: relative;left: -40px;top: -20px;font-size: 14px;">有效</span>
+          <img src="<%= asset_path 'C4.png' %>" style="width: 100px;margin-left: -40px;" alt="">
+        </div>
+        <div class="page3" style="display: none;">
+          <img src="<%= asset_path 'L.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
+          <img src="<%= asset_path 'M1.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
+          <img src="<%= asset_path 'E1.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
+          <span style="position: relative;left: -35px;top: -20px;font-size: 14px;">有</span>
+          <img src="<%= asset_path 'M4.png' %>" style="width: 100px;margin-left: -20px;" alt="">
+          <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
+          <img src="<%= asset_path 'E4.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
+          <span style="position: relative;left: -45px;top: -20px;font-size: 14px;">及时</span>
+          <img src="<%= asset_path 'C5.png' %>" style="width: 100px;margin-left: -40px;" alt="">
+        </div>
+        <div class="page4" style="display: none;">
+          <img src="<%= asset_path 'L.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
+          <img src="<%= asset_path 'M2.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
+          <img src="<%= asset_path 'E2.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
+          <span style="position: relative;left: -15px;top: -20px;font-size: 14px;margin-left: -20px;">无</span>
+          <img src="<%= asset_path 'C2.png' %>" style="width: 100px;" alt="">
+        </div>
+        <div class="page5" style="display: none;">
+          <img src="<%= asset_path 'L.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
+          <img src="<%= asset_path 'M3.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
+          <img src="<%= asset_path 'E2.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
+          <span style="position: relative;left: -15px;top: -20px;font-size: 14px;margin-left: -20px;">无</span>
+          <img src="<%= asset_path 'C2.png' %>" style="width: 100px;" alt="">
+        </div>
+        <div class="page6" style="display: none;">
+          <img src="<%= asset_path 'L.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
+          <img src="<%= asset_path 'M2.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
+          <img src="<%= asset_path 'E2.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
+          <span style="position: relative;left: -15px;top: -20px;font-size: 14px;margin-left: -20px;">有</span>
+          <img src="<%= asset_path 'E3.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
+          <span style="position: relative;left: -15px;top: -20px;font-size: 14px;margin-left: -20px;">无</span>
+          <img src="<%= asset_path 'C3.png' %>" style="width: 100px;" alt="">
+        </div>
+        <div class="page7" style="display: none;">
+          <img src="<%= asset_path 'L.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
+          <img src="<%= asset_path 'M3.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
+          <img src="<%= asset_path 'E2.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
+          <span style="position: relative;left: -15px;top: -20px;font-size: 14px;margin-left: -20px;">有</span>
+          <img src="<%= asset_path 'E3.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
+          <span style="position: relative;left: -15px;top: -20px;font-size: 14px;margin-left: -20px;">无</span>
+          <img src="<%= asset_path 'C3.png' %>" style="width: 100px;" alt="">
+        </div>
+        <div class="page8" style="display: none;">
+          <img src="<%= asset_path 'L.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
+          <img src="<%= asset_path 'M2.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
+          <img src="<%= asset_path 'E2.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
+          <span style="position: relative;left: -15px;top: -20px;font-size: 14px;margin-left: -20px;">有</span>
+          <img src="<%= asset_path 'E3.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
+          <span style="position: relative;left: -15px;top: -20px;font-size: 14px;margin-left: -20px;">有</span>
+          <img src="<%= asset_path 'M4.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
+          <img src="<%= asset_path 'E4.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
+          <span style="position: relative;left: -15px;top: -20px;font-size: 14px;margin-left: -30px;">及时</span>
+          <img src="<%= asset_path 'C5.png' %>" style="width: 100px;" alt="">
+        </div>
+        <div class="page9" style="display: none;">
+          <img src="<%= asset_path 'L.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
+          <img src="<%= asset_path 'M3.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
+          <img src="<%= asset_path 'E2.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
+          <span style="position: relative;left: -15px;top: -20px;font-size: 14px;margin-left: -20px;">有</span>
+          <img src="<%= asset_path 'E3.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
+          <span style="position: relative;left: -15px;top: -20px;font-size: 14px;margin-left: -20px;">有</span>
+          <img src="<%= asset_path 'M4.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
+          <img src="<%= asset_path 'E4.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
+          <span style="position: relative;left: -15px;top: -20px;font-size: 14px;margin-left: -30px;">及时</span>
+          <img src="<%= asset_path 'C5.png' %>" style="width: 100px;" alt="">
+        </div>
+        <div class="page10" style="display: none;">
+          <img src="<%= asset_path 'L.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
+          <img src="<%= asset_path 'M2.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
+          <img src="<%= asset_path 'E2.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
+          <span style="position: relative;left: -15px;top: -20px;font-size: 14px;margin-left: -20px;">有</span>
+          <img src="<%= asset_path 'E3.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
+          <span style="position: relative;left: -15px;top: -20px;font-size: 14px;margin-left: -20px;">有</span>
+          <img src="<%= asset_path 'M4.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
+          <img src="<%= asset_path 'E4.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
+          <span style="position: relative;left: -15px;top: -20px;font-size: 14px;margin-left: -30px;">不及时</span>
+          <img src="<%= asset_path 'M5.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
+          <span style="position: relative;left: -15px;top: -20px;font-size: 14px;margin-left: -30px;">有效</span>
+          <img src="<%= asset_path 'C4.png' %>" style="width: 100px;" alt="">
+        </div>
+        <div class="page11" style="display: none;">
+          <img src="<%= asset_path 'L.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
+          <img src="<%= asset_path 'M3.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
+          <img src="<%= asset_path 'E2.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
+          <span style="position: relative;left: -15px;top: -20px;font-size: 14px;margin-left: -20px;">有</span>
+          <img src="<%= asset_path 'E3.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
+          <span style="position: relative;left: -15px;top: -20px;font-size: 14px;margin-left: -20px;">有</span>
+          <img src="<%= asset_path 'M4.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
+          <img src="<%= asset_path 'E4.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
+          <span style="position: relative;left: -15px;top: -20px;font-size: 14px;margin-left: -30px;">不及时</span>
+          <img src="<%= asset_path 'M5.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
+          <span style="position: relative;left: -15px;top: -20px;font-size: 14px;margin-left: -30px;">有效</span>
+          <img src="<%= asset_path 'C4.png' %>" style="width: 100px;" alt="">
+        </div>
+
+        <div class="mainS" style="display: none;">
+          <img src="<%= asset_path 'mainS.png' %>" style="width: 800px;" alt="">
+        </div>
+        <div class="mainM" style="display: none;">
+          <img src="<%= asset_path 'mainM.png' %>" style="width: 800px;" alt="">
+        </div>
+        <div class="mainL" style="display: none;">
+          <img src="<%= asset_path 'mainL.png' %>" style="width: 800px;" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $('#select1').on('change', function () {
+    if (this.vale === "null") {
+      localStorage.removeItem('selectData1');
+    } else {
+      localStorage.setItem('selectData1', this.value);
+    }
+    // 强度标准
+    // selectData1 = String(localStorage.getItem('selectData1'))
+      sJson = { "E1_C1": 0.2, "E2_C3": 0.1, "E3_M4": 0.3, "E4_C5": 0.9 }
+      m1Json = { "E1_C1": 0.2, "E2_C3": 0.1, "E3_M4": 0.3, "E4_C5": 0.9 }
+      m2Json = { "E1_C1": 0.2, "E2_C3": 0.1, "E3_M4": 0.3, "E4_C5": 0.9 }
+      lJson = { "E1_C1": 0.2, "E2_C3": 0.1, "E3_M4": 0.3, "E4_C5": 0.9 }
+  })
+  $('.buttonS').on("click", function() {
+    $('.mainS').show()
+    $('.mainM').hide()
+    $('.mainL').hide()
+    if (localStorage.getItem('pages') != null) {
+      pages = localStorage.getItem('pages').split(',')
+      for (const page in pages) {
+        $('' + pages[page]).hide();
+      }
+      localStorage.removeItem('pages')
+    }
+  })
+  $('.buttonM').on("click", function () {
+    $('.mainM').show()
+    $('.mainS').hide()
+    $('.mainL').hide()
+    if (localStorage.getItem('pages') != null) {
+      pages = localStorage.getItem('pages').split(',')
+      for (const page in pages) {
+        $('' + pages[page]).hide();
+      }
+      localStorage.removeItem('pages')
+    }
+  })
+  $('.buttonL').on("click", function () {
+    $('.mainL').show()
+    $('.mainS').hide()
+    $('.mainM').hide()
+    if (localStorage.getItem('pages') != null) {
+      pages = localStorage.getItem('pages').split(',')
+      for (const page in pages) {
+        $('' + pages[page]).hide();
+      }
+      localStorage.removeItem('pages')
+    }
+  })
+
+  function submitForm(obj) {
+    $('.mainS').hide()
+    $('.mainM').hide()
+    $('.mainL').hide()
+    if (localStorage.getItem('pages') != null ) {
+      pages = localStorage.getItem('pages').split(',')
+      for (const page in pages) {
+        $('' + pages[page]).hide();
+      }
+      localStorage.removeItem('pages')
+    }
+    input = parseFloat($("#input").val())
+    // 强度标准
+    selectData1 = String(localStorage.getItem('selectData1'))
+    data = JSON.parse(localStorage.getItem('data'))
+    if (selectData1 === "null") {
+      $('.formGroup1').addClass('has-error')
+      $('.helpBlock1').show()
+      setTimeout(function () {
+        $('.formGroup1').removeClass('has-error')
+        $('.helpBlock1').hide()
+      }, 2000)
+      return false
+    }
+    if (data === "null" || data === null) {
+      $('.formGroup2').addClass('has-error')
+      $('.helpBlock2').show()
+      setTimeout(function () {
+        $('.formGroup2').removeClass('has-error')
+        $('.helpBlock2').hide()
+      }, 2000)
+      return false
+    }
+    loadPath(data, selectData1)
+    pages = localStorage.getItem('pages').split(',')
+    console.log(pages);
+    for (const page in pages) {
+      $('' + pages[page]).show();
+      $('' + pages[page]).prepend((parseInt(page) + 1)+"、")
+    }
+    return false
+  }
+  window.onbeforeunload = function (e) {
+    localStorage.clear()
+    // e = e || window.event;
+    // 兼容IE8和Firefox 4之前的版本
+    // if (e) {
+    //   e.returnValue = '关闭提示111';
+    // }
+    // Chrome, Safari, Firefox 4+, Opera 12+ , IE 9+
+    // return '关闭提示11';
+  };
+  function processFiles(files) {
+    //每个文件对象都有三个有用的属性：name属性保存文件名，size属性保存文件的字节大小，type保存文件的MEMI类型
+    var file = files[0];
+    //创建FileReader对象，
+    var reader = new FileReader();
+    //FileReader用来提取文件内容，但是这个方法是异步的，要提取文件，首先要处理onLoad事件
+    reader.onload = function (e) {
+      //这个事件发生了，意味着数据准备好了，
+      //将文件内容转换成一个长字符串，保存在onload事件的e.target.result中
+      console.log(e.target.result);
+      localStorage.setItem('data', e.target.result);
+    };
+    //调用FileReader的readAsText()方法
+    reader.readAsText(file);
+  }
+
+  function loadPath(data, selectData1) {
+    messages = []
+    pages = []
+    json = currentJson(selectData1)
+    console.log(json);
+    switch (selectData1) {
+      case "S":
+        console.log(selectData1);
+        if (data.E1_C1 != null && data.E2_C3 != null && data.E3_M4 != null && data.E4_C5 != null) {
+          if (data.E1_C1 != 0 && data.E1_C1 >= json.E1_C1) {
+            messages = messages.concat(["路线:低强度地震(L)->辅助设施破坏(M1)->无点火源(E1)->C1"])
+            pages = pages.concat([".page1"])
+          } else if (data.E1_C1 != 0 && data.E1_C1 < json.E1_C1) {
+            if ( data.E4_C5 != 0 && data.E4_C5 > json.E4_C5 ) {
+              messages = messages.concat(["路线:低强度地震(L)->辅助设施破坏(M1)->有点火源(E1)->火灾事故(M4)->应急措施不及时处理(E4)->有效的安全措施(M5)->C4"])
+              pages = pages.concat([".page2"])
+            } else if (data.E4_C5 != 0 && data.E4_C5 <= json.E4_C5) {
+              messages = messages.concat(["路线:低强度地震(L)->辅助设施破坏(M1)->有点火源(E1)->火灾事故(M4)->应急措施及时处理(E4)->C5"])
+              pages = pages.concat([".page3"])
+            }
+          }
+          if (data.E2_C3 != 0 && data.E2_C3 > json.E2_C3) {
+            messages = messages.concat(["路线:低强度地震(L)->支持装备位移(M2)或管箍脱落(M3)->无管线掉落(E2)->C2"])
+            pages = pages.concat([".page4", ".page5"])
+          } else if (data.E2_C3 != 0 && data.E2_C3 <= json.E2_C3) {
+            if (data.E3_M4 != 0 && data.E3_M4 > json.E3_M4) {
+              messages = messages.concat(["路线:低强度地震(L)->支持装备位移(M2)或管箍脱落(M3)->有管线掉落(E2)->无管线破损泄漏(E3)->C3"])
+              pages = pages.concat([".page6", ".page7"])
+            } else if (data.E3_M4 != 0 && data.E3_M4 <= json.E3_M4) {
+              if (data.E4_C5 != 0 && data.E4_C5 > json.E4_C5) {
+                messages = messages.concat(["路线:低强度地震(L)->支持装备位移(M2)或管箍脱落(M3)->有管线掉落(E2)->有管线破损泄漏(E3)->火灾事故(M4)->应急措施及时处理(E4)->C5"])
+                pages = pages.concat([".page8", ".page9"])
+              } else if (data.E4_C5 != 0 && data.E4_C5 <= json.E4_C5) {
+                messages = messages.concat(["路线:低强度地震(L)->支持装备位移(M2)或管箍脱落(M3)->有管线掉落(E2)->有管线破损泄漏(E3)->火灾事故(M4)->应急措施不及时处理(E4)->有效的安全措施(M5)->C4"])
+                pages = pages.concat([".page10", ".page11"])
+              }
+            }
+          }
+        } else {
+          messages = messages.concat(["请检查数据文件"])
+        }
+        if (messages === []) {
+          messages = ["请检查数据文件"]
+        } else {
+          localStorage.setItem('pages', pages);
+        }
+        console.log(messages);
+      case "M1":
+        console.log(selectData1);
+        break;
+      case "M2":
+        console.log(selectData1); 
+        break;
+      case "L":
+        console.log(selectData1);
+    }
+  }
+
+  function currentJson(selectData1) {
+    if (selectData1 === "S") {
+      json = sJson
+    } else if (selectData1 === "M1") {
+      json = m1Json
+    } else if (selectData1 === "M2") {
+      json = m2Json
+    } else if (selectData1 === "L") {
+      json = lJson
+    }
+    return json
+  }
+</script>
