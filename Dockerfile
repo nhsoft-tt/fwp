@@ -1,7 +1,7 @@
 FROM ruby:2.5.1-alpine
 RUN \
   apk update && \
-  apk --no-cache add --update build-base mysql-dev nodejs tzdata && \
+  apk --no-cache add --update build-base mysql-dev nodejs tzdata ruby-nokogiri && \
   rm -rf /var/lib/apt/lists/* && \
   rm -rf /var/cache/apk/*
 # FROM ruby:2.5.1
