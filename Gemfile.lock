@@ -182,6 +182,12 @@ GEM
     sassc (2.0.1)
       ffi (~> 1.9)
       rake
+    sassc-rails (2.1.0)
+      railties (>= 4.0.0)
+      sassc (>= 2.0)
+      sprockets (> 3.0)
+      sprockets-rails
+      tilt
     selenium-webdriver (3.141.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.2, >= 1.2.2)
@@ -225,7 +231,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootstrap-sass
+  bootstrap-sass (~> 3.4.1)
   byebug
   capistrano (~> 3.6)
   capistrano-bundler
@@ -244,6 +250,8 @@ DEPENDENCIES
   rails (~> 5.2.2)
   redis (~> 4.0)
   sass-rails (~> 5.0)
+  sassc
+  sassc-rails (>= 2.1.0)
   selenium-webdriver
   spring
   spring-watcher-listen (~> 2.0.0)
