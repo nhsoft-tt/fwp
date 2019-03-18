@@ -20,6 +20,7 @@ ADD Gemfile /webapp/Gemfile
 ADD Gemfile.lock /webapp/Gemfile.lock
 
 RUN gem install nokogiri -v '1.10.1' && \
+  gem install mysql2 -v '0.5.2' && \
   gem install nio4r -v '2.3.1' && \
   gem install websocket-driver -v '0.7.0' && \
   gem install bindex -v '0.5.0' && \
