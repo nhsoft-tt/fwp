@@ -25,7 +25,8 @@ RUN gem install nokogiri -v '1.10.1' && \
   gem install bindex -v '0.5.0' && \
   gem install ffi -v '1.10.0' && \
   gem install sassc -v '2.0.1' && \
-  gem install byebug -v '11.0.0'
+  gem install byebug -v '11.0.0' && \
+  gem install puma -v '3.12.0'
 
 RUN bundle install
 
