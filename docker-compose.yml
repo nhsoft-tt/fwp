@@ -23,7 +23,7 @@ services:
       - public-data:/webapp/public
       - tmp-data:/webapp/tmp
     ports:
-      - 8111:8111
+      - 80:80
     depends_on:
       - app
 volumes:

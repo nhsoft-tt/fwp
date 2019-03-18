@@ -1,0 +1,8 @@
+#!/bin/bash
+echo "开始部署"
+USERNAME=root
+HOSTS="52.197.38.237"
+SCRIPT="/home/deploy/fwp/remote-deploy.sh"
+for HOSTNAME in ${HOSTS} ; do
+    ssh -l ${USERNAME} ${HOSTNAME} "${SCRIPT}"
+done
