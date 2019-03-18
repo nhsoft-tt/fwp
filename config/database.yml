@@ -19,11 +19,11 @@ staging:
 production:
   adapter: mysql2
   encoding: utf8
-  database: fwp_production
-  pool: 20
-  username: root
-  password: 
-  host: localhost
+  database: <%= ENV['MYSQL_DATABASE'] %>
+  pool: <%= ENV['MYSQL_POOL'] %>
+  username: <%= ENV['MYSQL_USER'] %>
+  password: <%= ENV['MYSQL_PASSWORD'] %>
+  host: <%= ENV['MYSQL_HOST'] %>
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
