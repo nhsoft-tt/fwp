@@ -16,6 +16,8 @@ about:
 # 	@$(RAILS) db:drop DISABLE_DATABASE_ENVIRONMENT_CHECK=1
 migrate:
 	@$(RAILS) db:migrate
+create:
+	@$(RAILS) db:create
 console:
 	@$(RAILS) console
 ### Docker related
