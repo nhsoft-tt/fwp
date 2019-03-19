@@ -11,4 +11,6 @@ Rails.application.routes.draw do
       get "five"
     end
   end
+
+  resources :cases
 end

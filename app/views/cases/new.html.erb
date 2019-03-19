@@ -1,0 +1,110 @@
+<div class="row" style="margin-top: 20px;">
+  <div class="col-sm-10 col-sm-offset-1">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          案例输入
+        </h3>
+      </div>
+      <div class="panel-body">
+        <%= form_for @case, :html => { :onsubmit => "return submitForm();" }, class: "form-horizontal" do |f| %>
+          <div class="row">
+            <div class="col-sm-10 col-sm-offset-1">
+              <div class="col-sm-4 formGroup1" style="line-height: 34px;">
+                <label>案例名称</label>
+                <%= f.text_field :name, class: "form-control", placeholder: '请输入案例名称' %>
+                <span class="help-block helpBlock1" style="display: none;">请先输入案例名称</span>
+              </div>
+              <div class="col-sm-4 formGroup2" style="line-height: 34px;">
+                <label>用户名称</label>
+                <%= f.text_field :username, class: "form-control", placeholder: '请输入用户名称' %>
+                <span class="help-block helpBlock2" style="display: none;">请先输入用户名称</span>
+              </div>
+              <div class="col-sm-4 formGroup3" style="line-height: 34px;">
+                <label>案例关键词</label>
+                <%= f.text_field :tag, class: "form-control", placeholder: '请输入案例关键词' %>
+                <span class="help-block helpBlock3" style="display: none;">请先输入案例关键词</span>
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-sm-10 col-sm-offset-1">
+              <div class="col-sm-12 formGroup4" style="line-height: 34px;">
+                <label>案例描述</label>
+                <%= f.text_area :desc, class: "form-control", placeholder: '请输入案例描述' %>
+                <span class="help-block helpBlock4" style="display: none;">请先输入案例描述</span>
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-sm-10 col-sm-offset-1">
+              <div class="col-sm-12 formGroup5" style="line-height: 34px;">
+                <label>添加数据</label>
+                <%= f.file_field :file, class: "form-control" %>
+                <span class="help-block helpBlock5" style="display: none;">请先上传数据文件</span>
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-sm-10 col-sm-offset-1">
+              <div class="col-sm-12" style="line-height: 34px;">
+                <button type="submit" class="btn btn-default">确定</button>
+              </div>
+            </div>
+          </div>  
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    function submitForm() {
+      if ($('#case_name').val() === "") {
+        $('.formGroup1').addClass('has-error')
+        $('.helpBlock1').show()
+        setTimeout(function () {
+          $('.formGroup1').removeClass('has-error')
+          $('.helpBlock1').hide()
+        }, 3000)
+      }
+      if ($('#case_username').val() === "") {
+        $('.formGroup2').addClass('has-error')
+        $('.helpBlock2').show()
+        setTimeout(function () {
+          $('.formGroup2').removeClass('has-error')
+          $('.helpBlock2').hide()
+        }, 3000)
+      }
+      if ($('#case_tag').val() === "") {
+        $('.formGroup3').addClass('has-error')
+        $('.helpBlock3').show()
+        setTimeout(function () {
+          $('.formGroup3').removeClass('has-error')
+          $('.helpBlock3').hide()
+        }, 3000)
+      }
+      if ($('#case_desc').val() === "") {
+        $('.formGroup4').addClass('has-error')
+        $('.helpBlock4').show()
+        setTimeout(function () {
+          $('.formGroup4').removeClass('has-error')
+          $('.helpBlock4').hide()
+        }, 3000)
+      }
+      if ($('#case_file').val() === "") {
+        $('.formGroup5').addClass('has-error')
+        $('.helpBlock5').show()
+        setTimeout(function () {
+          $('.formGroup5').removeClass('has-error')
+          $('.helpBlock5').hide()
+        }, 3000)
+      }
+      if ($('#case_name').val() === "" || $('#case_username').val() === "" || $('#case_tag').val() === "" || $('#case_desc').val() === "" || $('#case_file').val() === "") {
+        return false
+      }
+    }
+</script>

@@ -18,6 +18,8 @@ migrate:
 	@$(RAILS) db:migrate
 create:
 	@$(RAILS) db:create
+rollback:
+	@$(RAILS) db:rollback
 console:
 	@$(RAILS) console
 ### Docker related
