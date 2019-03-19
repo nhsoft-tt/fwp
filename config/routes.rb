@@ -17,4 +17,6 @@ Rails.application.routes.draw do
       get :get_json
     end
   end
+
+  resources :case_results
 end

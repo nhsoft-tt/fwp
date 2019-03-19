@@ -48,6 +48,6 @@ class CasesController < ApplicationController
   private
 
     def case_params
-      params.require(:case).permit(:username, :name, :tag, :desc)
+      params.require(:case).permit(:username, :name, :tag, :desc, :time)
     end
 end

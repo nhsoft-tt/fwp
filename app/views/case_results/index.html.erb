@@ -3,28 +3,22 @@
     <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="panel-title">
-          案例检索
+          数据存储
         </h3>
       </div>
       <div class="panel-body">
-        <%= form_tag({ controller: 'cases', action: :index }, method: :get) do %>
+        <%= form_tag({ controller: 'case_results', action: :index }, method: :get) do %>
           <div class="row">
-              <div class="col-sm-4">
+              <div class="col-sm-6">
                 <div class="form-group">
                   <label for="name" class="control-label">案例名称</label>
-                  <%= text_field_tag :name, params[:name], class: "form-control", placeholder: "请输入案例名称" %>
+                  <%= text_field_tag :case_name, params[:case_name], class: "form-control", placeholder: "请输入案例名称" %>
                 </div>
               </div>
-              <div class="col-sm-4">
+              <div class="col-sm-6">
                 <div class="form-group">
-                  <label for="name" class="control-label">用户名称</label>
-                  <%= text_field_tag :username, params[:username], class: "form-control", placeholder: "请输入用户名称" %>
-                </div>
-              </div>
-              <div class="col-sm-4">
-                <div class="form-group">
-                  <label for="name" class="control-label">案例关键词</label>
-                  <%= text_field_tag :tag, params[:tag], class: "form-control", placeholder: "请输入案例关键词" %>
+                  <label for="name" class="control-label">地震强度</label>
+                  <%= text_field_tag :username, params[:username], class: "form-control", placeholder: "请选择地震强度" %>
                 </div>
               </div>
           </div>
@@ -43,27 +37,23 @@
             <table class="table table-striped table-bordered table-hover dataTables-example">
               <thead>
                 <tr>
-                    <th>案例ID</th>
+                    <th>ID</th>
                     <th>案例名称</th>
-                    <th>发生时间</th>
-                    <th>用户名称</th>
-                    <th>关键词</th>
-                    <th style="width:30%;">案例描述</th>
-                    <th>案例数据</th>
+                    <th>案例关键词</th>
+                    <th style="width: 18%;">灾害后果</th>
+                    <th style="width: 50%;">灾害演化路径</th>
                     <th>操作</th>
                 </tr>
               </thead>
             <tbody>
-              <% @cases.each do |item| %>
+              <% @case_results.each do |item| %>
                 <tr>
                   <td><%= item.id %></td>
-                  <td><%= item.name %></td>
-                  <td><%= item.time&.to_datetime&.strftime("%Y-%m-%d %H:%M:%S") %></td>
-                  <td><%= item.username %></td>
-                  <td><%= item.tag %></td>
-                  <td><%= item.desc %></td>
-                  <td><%= item.file %></td>
-                  <td><%= link_to '删除', item, method: :delete, data: { confirm: '确定删除?' }, class: "btn btn-danger" %></td>
+                  <td><%= item.case_name %></td>
+                  <td><%= item.case_tag %></td>
+                  <td><%= item.result_array.join('<br>').html_safe %></td>
+                  <td><%= item.path_array.join('<br>').html_safe %></td>
+                  <td></td>
                 </tr>
               <% end %>
             </tbody>
@@ -79,7 +69,7 @@
               </tr>
             </tfoot> %>
           </table>
-          <%= paginate @cases %>
+          <%= paginate @case_results %>
           </div>
         </div>
       </div>

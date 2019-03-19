@@ -355,6 +355,7 @@
     messages = []
     pages = []
     json = currentJson(selectData1)
+    results = []
     console.log(json);
     $.ajax({
       data: {  },
@@ -369,31 +370,38 @@
               console.log(selectData1);
               if (data.E1_C1 != null && data.E2_C3 != null && data.E3_M4 != null && data.E4_C5 != null) {
                 if (data.E1_C1 != 0 && data.E1_C1 >= json.E1_C1) {
-                  messages = messages.concat(["路线:低强度地震(L)->辅助设施破坏(M1)->无点火源(E1)->C1"])
+                  messages = messages.concat(["路线:低强度地震(L)->辅助设施破坏(M1)->无点火源(E1)->几乎无损失,修复辅助设施(C1)"])
                   pages = pages.concat([".page1"])
+                  results = results.concat(["几乎无损失,修复辅助设施"])
                 } else if (data.E1_C1 != 0 && data.E1_C1 < json.E1_C1) {
                   if ( data.E4_C5 != 0 && data.E4_C5 > json.E4_C5 ) {
-                    messages = messages.concat(["路线:低强度地震(L)->辅助设施破坏(M1)->有点火源(E1)->火灾事故(M4)->应急措施不及时处理(E4)->有效的安全措施(M5)->C4"])
+                    messages = messages.concat(["路线:低强度地震(L)->辅助设施破坏(M1)->有点火源(E1)->火灾事故(M4)->应急措施不及时处理(E4)->有效的安全措施(M5)->经济损失较大,无人员伤亡(C4)"])
                     pages = pages.concat([".page2"])
+                    results = results.concat(["经济损失较大,无人员伤亡"])
                   } else if (data.E4_C5 != 0 && data.E4_C5 <= json.E4_C5) {
-                    messages = messages.concat(["路线:低强度地震(L)->辅助设施破坏(M1)->有点火源(E1)->火灾事故(M4)->应急措施及时处理(E4)->C5"])
+                    messages = messages.concat(["路线:低强度地震(L)->辅助设施破坏(M1)->有点火源(E1)->火灾事故(M4)->应急措施及时处理(E4)->少量经济损失,无人员伤亡(C5)"])
                     pages = pages.concat([".page3"])
+                    results = results.concat(["少量经济损失,无人员伤亡"])
                   }
                 }
                 if (data.E2_C3 != 0 && data.E2_C3 > json.E2_C3) {
-                  messages = messages.concat(["路线:低强度地震(L)->支持装备位移(M2)或管箍脱落(M3)->无管线掉落(E2)->C2"])
+                  messages = messages.concat(["路线:低强度地震(L)->支持装备位移(M2)或管箍脱落(M3)->无管线掉落(E2)->几乎无损失,矫正管道(C2)"])
                   pages = pages.concat([".page4", ".page5"])
+                  results = results.concat(["几乎无损失,矫正管道"])
                 } else if (data.E2_C3 != 0 && data.E2_C3 <= json.E2_C3) {
                   if (data.E3_M4 != 0 && data.E3_M4 > json.E3_M4) {
-                    messages = messages.concat(["路线:低强度地震(L)->支持装备位移(M2)或管箍脱落(M3)->有管线掉落(E2)->无管线破损泄漏(E3)->C3"])
+                    messages = messages.concat(["路线:低强度地震(L)->支持装备位移(M2)或管箍脱落(M3)->有管线掉落(E2)->无管线破损泄漏(E3)->少量经济损失,安装管道(C3)"])
                     pages = pages.concat([".page6", ".page7"])
+                    results = results.concat(["少量经济损失,安装管道"])
                   } else if (data.E3_M4 != 0 && data.E3_M4 <= json.E3_M4) {
                     if (data.E4_C5 != 0 && data.E4_C5 > json.E4_C5) {
-                      messages = messages.concat(["路线:低强度地震(L)->支持装备位移(M2)或管箍脱落(M3)->有管线掉落(E2)->有管线破损泄漏(E3)->火灾事故(M4)->应急措施及时处理(E4)->C5"])
+                      messages = messages.concat(["路线:低强度地震(L)->支持装备位移(M2)或管箍脱落(M3)->有管线掉落(E2)->有管线破损泄漏(E3)->火灾事故(M4)->应急措施及时处理(E4)->少量经济损失,无人员伤亡(C5)"])
                       pages = pages.concat([".page8", ".page9"])
+                      results = results.concat(["少量经济损失,无人员伤亡"])
                     } else if (data.E4_C5 != 0 && data.E4_C5 <= json.E4_C5) {
-                      messages = messages.concat(["路线:低强度地震(L)->支持装备位移(M2)或管箍脱落(M3)->有管线掉落(E2)->有管线破损泄漏(E3)->火灾事故(M4)->应急措施不及时处理(E4)->有效的安全措施(M5)->C4"])
+                      messages = messages.concat(["路线:低强度地震(L)->支持装备位移(M2)或管箍脱落(M3)->有管线掉落(E2)->有管线破损泄漏(E3)->火灾事故(M4)->应急措施不及时处理(E4)->有效的安全措施(M5)->经济损失较大,无人员伤亡(C4)"])
                       pages = pages.concat([".page10", ".page11"])
+                      results = results.concat(["经济损失较大,无人员伤亡"])
                     }
                   }
                 }
@@ -409,6 +417,21 @@
                   $('' + pages[page]).prepend('<span class="tmpPage">' + (parseInt(page) + 1) +'、</span>')
                   $('' + pages[page]).show();
                 }
+                $.ajax({
+                  data: { 
+                    case_result: {
+                      case_id: case_id,
+                      result_array: results,
+                      path_array: messages,
+                      case_type: selectData1
+                    }
+                   },
+                  type: "POST",
+                  url: "/case_results",
+                  success: function(result) {
+                    console.log(result.message);
+                  }
+                })
               }
               console.log(messages);
             case "M1":
