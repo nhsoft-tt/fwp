@@ -16,7 +16,7 @@
         <div class="col-sm-4 midButton buttonL">
           <button class="btn btn-primary">高强度地震事故场景</button>
         </div>
-        <form role="form" onsubmit="return submitForm(this);">
+        <div>
           <div class="form-group formGroup1">
             <label for="name">选择地震强度</label>
             <select id="select1" class="form-control">
@@ -25,15 +25,20 @@
               <option value="M1">中等强度地震</option>
               <option value="L">高强度地震</option>
             </select>
-            <span class="help-block helpBlock1" style="">请先选择地震强度</span>
+            <span class="help-block helpBlock1" style="display:none;">请先选择地震强度</span>
           </div>
-          <div class="form-group formGroup2">
+          <%# <div class="form-group formGroup2">
             <label for="inputfile">上传数据文件</label>
             <input type="file" id="fileInput" class="form-control" onChange="processFiles(this.files)">
-            <span class="help-block helpBlock2" style="">请先上传数据文件</span>
+            <span class="help-block helpBlock2" style="display:none;">请先上传数据文件</span>
+          </div> %>
+          <div class="form-group formGroup2">
+            <label for="case">选择案例</label>
+            <%= select_tag(:case, options_for_select(Case.pluck(:name, :id)), include_blank: true, class: 'form-control') %>
+            <span class="help-block helpBlock2" style="display:none;">请先选择案例</span>
           </div>
-          <button type="submit" class="btn btn-default">提交</button>
-        </form>
+          <button onclick="submitForm(this)" class="btn btn-default">提交</button>
+        </div>
       </div>
     </div>
   </div>
@@ -53,7 +58,7 @@
           <img src="<%= asset_path 'E1.png' %>" style="width: 100px;" alt="">
           <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
           <span style="position: relative;left: -15px;top: -20px;font-size: 14px;margin-left: -20px;">无</span>
-          <img src="<%= asset_path 'C1.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path 'C1.png' %>" style="width: 80px;" alt="">
         </div>
         <div class="page2" style="display: none;">
           <img src="<%= asset_path 'L.png' %>" style="width: 100px;" alt="">
@@ -71,7 +76,7 @@
           <img src="<%= asset_path 'M5.png' %>" style="width: 100px;margin-left: -40px;" alt="">
           <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
           <span style="position: relative;left: -40px;top: -20px;font-size: 14px;">有效</span>
-          <img src="<%= asset_path 'C4.png' %>" style="width: 100px;margin-left: -40px;" alt="">
+          <img src="<%= asset_path 'C4.png' %>" style="width: 80px;margin-left: -40px;" alt="">
         </div>
         <div class="page3" style="display: none;">
           <img src="<%= asset_path 'L.png' %>" style="width: 100px;" alt="">
@@ -86,7 +91,7 @@
           <img src="<%= asset_path 'E4.png' %>" style="width: 100px;" alt="">
           <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
           <span style="position: relative;left: -45px;top: -20px;font-size: 14px;">及时</span>
-          <img src="<%= asset_path 'C5.png' %>" style="width: 100px;margin-left: -40px;" alt="">
+          <img src="<%= asset_path 'C5.png' %>" style="width: 80px;margin-left: -40px;" alt="">
         </div>
         <div class="page4" style="display: none;">
           <img src="<%= asset_path 'L.png' %>" style="width: 100px;" alt="">
@@ -96,7 +101,7 @@
           <img src="<%= asset_path 'E2.png' %>" style="width: 100px;" alt="">
           <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
           <span style="position: relative;left: -15px;top: -20px;font-size: 14px;margin-left: -20px;">无</span>
-          <img src="<%= asset_path 'C2.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path 'C2.png' %>" style="width: 80px;" alt="">
         </div>
         <div class="page5" style="display: none;">
           <img src="<%= asset_path 'L.png' %>" style="width: 100px;" alt="">
@@ -106,7 +111,7 @@
           <img src="<%= asset_path 'E2.png' %>" style="width: 100px;" alt="">
           <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
           <span style="position: relative;left: -15px;top: -20px;font-size: 14px;margin-left: -20px;">无</span>
-          <img src="<%= asset_path 'C2.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path 'C2.png' %>" style="width: 80px;" alt="">
         </div>
         <div class="page6" style="display: none;">
           <img src="<%= asset_path 'L.png' %>" style="width: 100px;" alt="">
@@ -119,7 +124,7 @@
           <img src="<%= asset_path 'E3.png' %>" style="width: 100px;" alt="">
           <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
           <span style="position: relative;left: -15px;top: -20px;font-size: 14px;margin-left: -20px;">无</span>
-          <img src="<%= asset_path 'C3.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path 'C3.png' %>" style="width: 80px;" alt="">
         </div>
         <div class="page7" style="display: none;">
           <img src="<%= asset_path 'L.png' %>" style="width: 100px;" alt="">
@@ -132,7 +137,7 @@
           <img src="<%= asset_path 'E3.png' %>" style="width: 100px;" alt="">
           <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
           <span style="position: relative;left: -15px;top: -20px;font-size: 14px;margin-left: -20px;">无</span>
-          <img src="<%= asset_path 'C3.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path 'C3.png' %>" style="width: 80px;" alt="">
         </div>
         <div class="page8" style="display: none;">
           <img src="<%= asset_path 'L.png' %>" style="width: 100px;" alt="">
@@ -150,7 +155,7 @@
           <img src="<%= asset_path 'E4.png' %>" style="width: 100px;" alt="">
           <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
           <span style="position: relative;left: -15px;top: -20px;font-size: 14px;margin-left: -30px;">及时</span>
-          <img src="<%= asset_path 'C5.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path 'C5.png' %>" style="width: 80px;" alt="">
         </div>
         <div class="page9" style="display: none;">
           <img src="<%= asset_path 'L.png' %>" style="width: 100px;" alt="">
@@ -168,7 +173,7 @@
           <img src="<%= asset_path 'E4.png' %>" style="width: 100px;" alt="">
           <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
           <span style="position: relative;left: -15px;top: -20px;font-size: 14px;margin-left: -30px;">及时</span>
-          <img src="<%= asset_path 'C5.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path 'C5.png' %>" style="width: 80px;" alt="">
         </div>
         <div class="page10" style="display: none;">
           <img src="<%= asset_path 'L.png' %>" style="width: 100px;" alt="">
@@ -189,7 +194,7 @@
           <img src="<%= asset_path 'M5.png' %>" style="width: 100px;" alt="">
           <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
           <span style="position: relative;left: -15px;top: -20px;font-size: 14px;margin-left: -30px;">有效</span>
-          <img src="<%= asset_path 'C4.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path 'C4.png' %>" style="width: 80px;" alt="">
         </div>
         <div class="page11" style="display: none;">
           <img src="<%= asset_path 'L.png' %>" style="width: 100px;" alt="">
@@ -210,7 +215,7 @@
           <img src="<%= asset_path 'M5.png' %>" style="width: 100px;" alt="">
           <img src="<%= asset_path '箭头.png' %>" style="width: 40px;" alt="">
           <span style="position: relative;left: -15px;top: -20px;font-size: 14px;margin-left: -30px;">有效</span>
-          <img src="<%= asset_path 'C4.png' %>" style="width: 100px;" alt="">
+          <img src="<%= asset_path 'C4.png' %>" style="width: 80px;" alt="">
         </div>
 
         <div class="mainS" style="display: none;">
@@ -287,12 +292,13 @@
       for (const page in pages) {
         $('' + pages[page]).hide();
       }
+      $('.tmpPage').remove();
       localStorage.removeItem('pages')
     }
     input = parseFloat($("#input").val())
     // 强度标准
     selectData1 = String(localStorage.getItem('selectData1'))
-    data = JSON.parse(localStorage.getItem('data'))
+    // data = JSON.parse(localStorage.getItem('data'))
     if (selectData1 === "null") {
       $('.formGroup1').addClass('has-error')
       $('.helpBlock1').show()
@@ -302,7 +308,7 @@
       }, 2000)
       return false
     }
-    if (data === "null" || data === null) {
+    if ($('#case').val() === "") {
       $('.formGroup2').addClass('has-error')
       $('.helpBlock2').show()
       setTimeout(function () {
@@ -311,13 +317,12 @@
       }, 2000)
       return false
     }
-    loadPath(data, selectData1)
-    pages = localStorage.getItem('pages').split(',')
-    console.log(pages);
-    for (const page in pages) {
-      $('' + pages[page]).show();
-      $('' + pages[page]).prepend((parseInt(page) + 1)+"、")
-    }
+    loadPath($('#case').val(), selectData1)
+    // pages = localStorage.getItem('pages').split(',')
+    // for (const page in pages) {
+    //   $('' + pages[page]).prepend('<span class="tmpPage">' + (parseInt(page) + 1) +'、</span>')
+    //   $('' + pages[page]).show();
+    // }
     return false
   }
   window.onbeforeunload = function (e) {
@@ -346,62 +351,80 @@
     reader.readAsText(file);
   }
 
-  function loadPath(data, selectData1) {
+  function loadPath(case_id, selectData1) {
     messages = []
     pages = []
     json = currentJson(selectData1)
     console.log(json);
-    switch (selectData1) {
-      case "S":
-        console.log(selectData1);
-        if (data.E1_C1 != null && data.E2_C3 != null && data.E3_M4 != null && data.E4_C5 != null) {
-          if (data.E1_C1 != 0 && data.E1_C1 >= json.E1_C1) {
-            messages = messages.concat(["路线:低强度地震(L)->辅助设施破坏(M1)->无点火源(E1)->C1"])
-            pages = pages.concat([".page1"])
-          } else if (data.E1_C1 != 0 && data.E1_C1 < json.E1_C1) {
-            if ( data.E4_C5 != 0 && data.E4_C5 > json.E4_C5 ) {
-              messages = messages.concat(["路线:低强度地震(L)->辅助设施破坏(M1)->有点火源(E1)->火灾事故(M4)->应急措施不及时处理(E4)->有效的安全措施(M5)->C4"])
-              pages = pages.concat([".page2"])
-            } else if (data.E4_C5 != 0 && data.E4_C5 <= json.E4_C5) {
-              messages = messages.concat(["路线:低强度地震(L)->辅助设施破坏(M1)->有点火源(E1)->火灾事故(M4)->应急措施及时处理(E4)->C5"])
-              pages = pages.concat([".page3"])
-            }
-          }
-          if (data.E2_C3 != 0 && data.E2_C3 > json.E2_C3) {
-            messages = messages.concat(["路线:低强度地震(L)->支持装备位移(M2)或管箍脱落(M3)->无管线掉落(E2)->C2"])
-            pages = pages.concat([".page4", ".page5"])
-          } else if (data.E2_C3 != 0 && data.E2_C3 <= json.E2_C3) {
-            if (data.E3_M4 != 0 && data.E3_M4 > json.E3_M4) {
-              messages = messages.concat(["路线:低强度地震(L)->支持装备位移(M2)或管箍脱落(M3)->有管线掉落(E2)->无管线破损泄漏(E3)->C3"])
-              pages = pages.concat([".page6", ".page7"])
-            } else if (data.E3_M4 != 0 && data.E3_M4 <= json.E3_M4) {
-              if (data.E4_C5 != 0 && data.E4_C5 > json.E4_C5) {
-                messages = messages.concat(["路线:低强度地震(L)->支持装备位移(M2)或管箍脱落(M3)->有管线掉落(E2)->有管线破损泄漏(E3)->火灾事故(M4)->应急措施及时处理(E4)->C5"])
-                pages = pages.concat([".page8", ".page9"])
-              } else if (data.E4_C5 != 0 && data.E4_C5 <= json.E4_C5) {
-                messages = messages.concat(["路线:低强度地震(L)->支持装备位移(M2)或管箍脱落(M3)->有管线掉落(E2)->有管线破损泄漏(E3)->火灾事故(M4)->应急措施不及时处理(E4)->有效的安全措施(M5)->C4"])
-                pages = pages.concat([".page10", ".page11"])
+    $.ajax({
+      data: {  },
+      type: "GET",
+      url: "/cases/"+ case_id + "/get_json",
+      success: function(result) {
+        if (result.status == "ok") {
+          data = result.data
+          console.log(data);
+          switch (selectData1) {
+            case "S":
+              console.log(selectData1);
+              if (data.E1_C1 != null && data.E2_C3 != null && data.E3_M4 != null && data.E4_C5 != null) {
+                if (data.E1_C1 != 0 && data.E1_C1 >= json.E1_C1) {
+                  messages = messages.concat(["路线:低强度地震(L)->辅助设施破坏(M1)->无点火源(E1)->C1"])
+                  pages = pages.concat([".page1"])
+                } else if (data.E1_C1 != 0 && data.E1_C1 < json.E1_C1) {
+                  if ( data.E4_C5 != 0 && data.E4_C5 > json.E4_C5 ) {
+                    messages = messages.concat(["路线:低强度地震(L)->辅助设施破坏(M1)->有点火源(E1)->火灾事故(M4)->应急措施不及时处理(E4)->有效的安全措施(M5)->C4"])
+                    pages = pages.concat([".page2"])
+                  } else if (data.E4_C5 != 0 && data.E4_C5 <= json.E4_C5) {
+                    messages = messages.concat(["路线:低强度地震(L)->辅助设施破坏(M1)->有点火源(E1)->火灾事故(M4)->应急措施及时处理(E4)->C5"])
+                    pages = pages.concat([".page3"])
+                  }
+                }
+                if (data.E2_C3 != 0 && data.E2_C3 > json.E2_C3) {
+                  messages = messages.concat(["路线:低强度地震(L)->支持装备位移(M2)或管箍脱落(M3)->无管线掉落(E2)->C2"])
+                  pages = pages.concat([".page4", ".page5"])
+                } else if (data.E2_C3 != 0 && data.E2_C3 <= json.E2_C3) {
+                  if (data.E3_M4 != 0 && data.E3_M4 > json.E3_M4) {
+                    messages = messages.concat(["路线:低强度地震(L)->支持装备位移(M2)或管箍脱落(M3)->有管线掉落(E2)->无管线破损泄漏(E3)->C3"])
+                    pages = pages.concat([".page6", ".page7"])
+                  } else if (data.E3_M4 != 0 && data.E3_M4 <= json.E3_M4) {
+                    if (data.E4_C5 != 0 && data.E4_C5 > json.E4_C5) {
+                      messages = messages.concat(["路线:低强度地震(L)->支持装备位移(M2)或管箍脱落(M3)->有管线掉落(E2)->有管线破损泄漏(E3)->火灾事故(M4)->应急措施及时处理(E4)->C5"])
+                      pages = pages.concat([".page8", ".page9"])
+                    } else if (data.E4_C5 != 0 && data.E4_C5 <= json.E4_C5) {
+                      messages = messages.concat(["路线:低强度地震(L)->支持装备位移(M2)或管箍脱落(M3)->有管线掉落(E2)->有管线破损泄漏(E3)->火灾事故(M4)->应急措施不及时处理(E4)->有效的安全措施(M5)->C4"])
+                      pages = pages.concat([".page10", ".page11"])
+                    }
+                  }
+                }
+              } else {
+                messages = messages.concat(["请检查数据文件"])
               }
-            }
+              if (messages === []) {
+                messages = ["请检查数据文件"]
+              } else {
+                localStorage.setItem('pages', pages);
+                console.log(pages);
+                for (const page in pages) {
+                  $('' + pages[page]).prepend('<span class="tmpPage">' + (parseInt(page) + 1) +'、</span>')
+                  $('' + pages[page]).show();
+                }
+              }
+              console.log(messages);
+            case "M1":
+              console.log(selectData1);
+              break;
+            case "M2":
+              console.log(selectData1); 
+              break;
+            case "L":
+              console.log(selectData1);
           }
-        } else {
-          messages = messages.concat(["请检查数据文件"])
         }
-        if (messages === []) {
-          messages = ["请检查数据文件"]
-        } else {
-          localStorage.setItem('pages', pages);
-        }
-        console.log(messages);
-      case "M1":
-        console.log(selectData1);
-        break;
-      case "M2":
-        console.log(selectData1); 
-        break;
-      case "L":
-        console.log(selectData1);
-    }
+      }
+    });
+
+    
   }
 
   function currentJson(selectData1) {

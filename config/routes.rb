@@ -12,5 +12,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :cases
+  resources :cases do
+    member do
+      get :get_json
+    end
+  end
 end

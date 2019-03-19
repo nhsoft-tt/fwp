@@ -12,19 +12,19 @@
               <div class="col-sm-4">
                 <div class="form-group">
                   <label for="name" class="control-label">案例名称</label>
-                  <%= text_field_tag :name, "", class: "form-control", placeholder: "请输入商品名称" %>
+                  <%= text_field_tag :name, params[:name], class: "form-control", placeholder: "请输入商品名称" %>
                 </div>
               </div>
               <div class="col-sm-4">
                 <div class="form-group">
                   <label for="name" class="control-label">用户名称</label>
-                  <%= text_field_tag :username, "", class: "form-control", placeholder: "请输入商品名称" %>
+                  <%= text_field_tag :username, params[:username], class: "form-control", placeholder: "请输入商品名称" %>
                 </div>
               </div>
               <div class="col-sm-4">
                 <div class="form-group">
                   <label for="name" class="control-label">案例关键词</label>
-                  <%= text_field_tag :tag, "", class: "form-control", placeholder: "请输入商品名称" %>
+                  <%= text_field_tag :tag, params[:tag], class: "form-control", placeholder: "请输入商品名称" %>
                 </div>
               </div>
           </div>
@@ -61,7 +61,7 @@
                   <td><%= item.tag %></td>
                   <td><%= item.desc %></td>
                   <td><%= item.file %></td>
-                  <td><button>删除</button></td>
+                  <td><%= link_to '删除', item, method: :delete, data: { confirm: '确定删除?' }, class: "btn btn-danger" %></td>
                 </tr>
               <% end %>
             </tbody>
