@@ -21,10 +21,10 @@ class CaseResult < ApplicationRecord
   end
   
   def self.to_csv
-    attributes = %w{case_name case_tag case_type_view result_text path_text}
+    attributes = %w{case_name case_tag case_desc case_type_view result_text path_text}
 
     CSV.generate(headers: true) do |csv|
-      csv << %w{编号 案例名称 案例关键词 地震强度	灾害后果 灾害演化路径}
+      csv << %w{编号 案例名称 案例关键词 案例描述 地震强度 灾害后果 灾害演化路径}
 
       find_each.with_index do |cr, index|
         csv << attributes.map{ |attr| cr.send(attr) }.unshift(index + 1)
@@ -38,5 +38,9 @@ class CaseResult < ApplicationRecord
 
   def path_text
     path_array.join("\r\n")
+  end
+
+  def case_desc
+    case&.desc
   end
 end
