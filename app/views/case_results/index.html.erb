@@ -18,7 +18,7 @@
               <div class="col-sm-6">
                 <div class="form-group">
                   <label for="name" class="control-label">地震强度</label>
-                  <%= text_field_tag :username, params[:username], class: "form-control", placeholder: "请选择地震强度" %>
+                  <%= select_tag(:case_type, options_for_select([['低强度地震', "S"], ['中等强度地震', "M1"], ["高强度地震", "L"]], params[:case_type]), include_blank: true, class: 'form-control') %>
                 </div>
               </div>
           </div>
@@ -26,6 +26,7 @@
             <div class="col-sm-4">
               <div class="form-group">
                   <input type="submit" class="btn btn-primary" name="commit" value="查询" data-disable-with="查询中。。。">
+                  <%= link_to "导出", case_results_path(format: "csv"), class: "btn btn-primary" %>
               </div>
             </div>
           </div>
@@ -40,9 +41,10 @@
                     <th>ID</th>
                     <th>案例名称</th>
                     <th>案例关键词</th>
+                    <th>地震强度</th>
                     <th style="width: 18%;">灾害后果</th>
                     <th style="width: 50%;">灾害演化路径</th>
-                    <th>操作</th>
+                    <%# <th>操作</th> %>
                 </tr>
               </thead>
             <tbody>
@@ -50,10 +52,11 @@
                 <tr>
                   <td><%= item.id %></td>
                   <td><%= item.case_name %></td>
+                  <td><%= item.case_type_view %></td>
                   <td><%= item.case_tag %></td>
                   <td><%= item.result_array.join('<br>').html_safe %></td>
                   <td><%= item.path_array.join('<br>').html_safe %></td>
-                  <td></td>
+                  <%# <td></td> %>
                 </tr>
               <% end %>
             </tbody>

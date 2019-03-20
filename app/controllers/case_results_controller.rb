@@ -2,9 +2,16 @@ class CaseResultsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:create]
 
   def index
-    @case_results = CaseResult.find_case_name(params[:case_name])
+    case_results = CaseResult.find_case_name(params[:case_name])
                               .find_case_type(params[:case_type])
-                              .page(params[:page]).per(8)
+    if params[:format] == "csv"
+      respond_to do |format|
+        format.html
+        format.csv { send_data case_results.to_csv, filename: "result-#{Time.current.strftime("%Y%m%d%H%M%S")}.csv" }
+      end
+    else
+      @case_results = case_results.page(params[:page]).per(8)
+    end
   end
 
   def create
@@ -16,6 +23,14 @@ class CaseResultsController < ApplicationController
 		else
 			render json: { status: 'error', message: '保存失败' }
 		end
+  end
+
+  def export
+    @case_result = CaseResult.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.csv { send_data @case_result.to_csv, filename: "#{@case_result.case_name}-#{@case_result.case_type_view}.csv" }
+    end
   end
 
   private
