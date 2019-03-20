@@ -41,6 +41,6 @@ class CaseResult < ApplicationRecord
   end
 
   def case_desc
-    case&.desc
+    self.case&.desc
   end
 end
