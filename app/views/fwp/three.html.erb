@@ -394,11 +394,11 @@
                     pages = pages.concat([".page6", ".page7"])
                     results = results.concat(["少量经济损失,安装管道"])
                   } else if (data.E3_M4 != 0 && data.E3_M4 <= json.E3_M4) {
-                    if (data.E4_C5 != 0 && data.E4_C5 > json.E4_C5) {
+                    if (data.E4_C5 != 0 && data.E4_C5 <= json.E4_C5) {
                       messages = messages.concat(["路线:低强度地震(L)->支持装备位移(M2)或管箍脱落(M3)->有管线掉落(E2)->有管线破损泄漏(E3)->火灾事故(M4)->应急措施及时处理(E4)->少量经济损失,无人员伤亡(C5)"])
                       pages = pages.concat([".page8", ".page9"])
                       results = results.concat(["少量经济损失,无人员伤亡"])
-                    } else if (data.E4_C5 != 0 && data.E4_C5 <= json.E4_C5) {
+                    } else if (data.E4_C5 != 0 && data.E4_C5 > json.E4_C5) {
                       messages = messages.concat(["路线:低强度地震(L)->支持装备位移(M2)或管箍脱落(M3)->有管线掉落(E2)->有管线破损泄漏(E3)->火灾事故(M4)->应急措施不及时处理(E4)->有效的安全措施(M5)->经济损失较大,无人员伤亡(C4)"])
                       pages = pages.concat([".page10", ".page11"])
                       results = results.concat(["经济损失较大,无人员伤亡"])
