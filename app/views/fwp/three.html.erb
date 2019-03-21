@@ -415,13 +415,14 @@
                 for (const page in pages) {
                   $('' + pages[page]).prepend('<span class="tmpPage">' + (parseInt(page) + 1) +'、</span>')
                   $('' + pages[page]).show();
-                }
+                }      
+                result_array = results.filter(function(item, index, results) { return results.indexOf(item, 0) === index; })          
                 $.ajax({
                   data: { 
                     case_result: {
                       case_id: case_id,
-                      result_array: results.uniq,
-                      path_array: messages.uniq,
+                      result_array: result_array,
+                      path_array: messages,
                       case_type: selectData1
                     }
                    },
