@@ -243,7 +243,6 @@
     // selectData1 = String(localStorage.getItem('selectData1'))
       sJson = { "E1_C1": 0.2, "E2_C3": 0.1, "E3_M4": 0.3, "E4_C5": 0.9 }
       m1Json = { "E1_C1": 0.2, "E2_C3": 0.1, "E3_M4": 0.3, "E4_C5": 0.9 }
-      m2Json = { "E1_C1": 0.2, "E2_C3": 0.1, "E3_M4": 0.3, "E4_C5": 0.9 }
       lJson = { "E1_C1": 0.2, "E2_C3": 0.1, "E3_M4": 0.3, "E4_C5": 0.9 }
   })
   $('.buttonS').on("click", function() {
@@ -421,8 +420,8 @@
                   data: { 
                     case_result: {
                       case_id: case_id,
-                      result_array: results,
-                      path_array: messages,
+                      result_array: results.uniq,
+                      path_array: messages.uniq,
                       case_type: selectData1
                     }
                    },
@@ -446,8 +445,6 @@
         }
       }
     });
-
-    
   }
 
   function currentJson(selectData1) {
