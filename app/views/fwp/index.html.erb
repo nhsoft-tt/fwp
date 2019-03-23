@@ -1,18 +1,26 @@
 <div class="backImg" style="height: 100vh;">
   <div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
-      <a href="<%= new_case_path %>" class="col-sm-4 col-sm-offset-1 block">
-        <span>案例输入</span>
-      </a>
-      <a href="<%= cases_path %>" class="col-sm-4 col-sm-offset-2 block">
-        案例检索
-      </a>
-      <a href="<%= three_fwp_index_path %>" class="col-sm-4 col-sm-offset-1 block">
-        灾害推演仿真
-      </a>
-      <a href="<%= case_results_path %>" class="col-sm-4 col-sm-offset-2 block">
-        数据存储
-      </a>
+    <div class="col-sm-8 col-sm-offset-2 indexTitle">
+      <span>城市综合管廊耦合事故灾害演化仿真模拟软件</span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+      <div class="img" style="float: left;width: 50%;height: 500px;">
+        <%= image_tag "indexLeft.png", style: "width: 100%;" %>
+      </div>
+      <div style="float: left;width: 10%;"></div>
+      <div class="" style="float: right;width: 45%;height: 380px;">
+        <a href="<%= new_case_path %>" class="block2">
+          <span>管廊事故灾害案例输入</span>
+        </a>
+        <a href="<%= three_fwp_index_path %>" class="block2">
+          <span>管廊事故灾害模拟仿真</span>
+        </a>
+        <a href="<%= case_results_path %>" class="block2">
+          <span>结果导出</span>
+        </a>
+      </div>
     </div>
   </div>
 </div>

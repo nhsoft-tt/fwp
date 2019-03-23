@@ -20,7 +20,7 @@
   width: 100vw;
 }
 .block {
-  // width: 100%;
+  width: 100%;
   height: 200px;
   background: white;
   text-align: center;
@@ -52,4 +52,43 @@
 .midButton {
   text-align: center;
   margin: 10px 0;
+}
+.indexTitle {
+  text-align: center;
+  // border: 1px solid #31708f;
+  margin-top: 20px;
+  // background: #eeeeee;
+  color: #333;
+  padding: 20px 0;
+  font-size: 24px;
+  font-weight: bold;
+}
+.block2 {
+  display: block;
+  padding: 40px 50px;
+  background: #d9edf775;
+  width: 80%;
+  text-align: center;
+  margin: 50px auto;
+  color: #12394c;
+  -webkit-box-shadow: 6px 6px 12px #666;
+  -moz-box-shadow: 6px 6px 12px #666;
+  box-shadow: 6px 6px 12px #666;
+}
+.block2 span {
+  color: rgb(24, 2, 2);
+  font-size: 20px;
+}
+.img {
+  display:-webkit-box;
+	display:-ms-flexbox;
+	display:flex-box;
+	display:flex;
+	-webkit-box-align:center;
+	-ms-flex-align:center;
+	align-items:center;
+	-webkit-box-pack:center;
+	-ms-flex-pack:center;
+	justify-content:center;
+	text-align:center;
 }
