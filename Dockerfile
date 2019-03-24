@@ -4,28 +4,12 @@
 #   apk --no-cache add --update build-base mysql-dev nodejs tzdata ruby-nokogiri && \
 #   rm -rf /var/lib/apt/lists/* && \
 #   rm -rf /var/cache/apk/*
-# FROM ruby:2.5.1
+FROM ruby:2.5.1
 
-# RUN apt-get update -qq && \
-#   apt-get install -y build-essential \
-#   default-libmysqlclient-dev \
-#   nodejs 
-
-FROM ubuntu:16.04
-
-RUN apt-get update && apt-get install -y curl apt-transport-https && \
-  curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
-  echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
-
-RUN apt-get update && apt-get install -y \
-  build-essential \
-  libpq-dev \
-  nodejs \
-  ruby '2.5.1' \
-  ruby-dev \
-  tzdata \
-  yarn \
-  zlib1g-dev
+RUN apt-get update -qq && \
+  apt-get install -y build-essential \
+  libmysqlclient-dev \
+  nodejs 
 
 RUN mkdir /webapp
 
