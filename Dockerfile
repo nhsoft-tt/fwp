@@ -11,19 +11,22 @@
 #   default-libmysqlclient-dev \
 #   nodejs 
 
-FROM ruby:2.5.1-slim
+FROM ubuntu:16.04
 
-RUN mv /etc/apt/sources.list /etc/apt/sources.list.bak && \
-    echo "deb http://mirrors.163.com/debian/ jessie main non-free contrib" >/etc/apt/sources.list && \
-    echo "deb http://mirrors.163.com/debian/ jessie-proposed-updates main non-free contrib" >>/etc/apt/sources.list && \
-    echo "deb-src http://mirrors.163.com/debian/ jessie main non-free contrib" >>/etc/apt/sources.list && \
-    echo "deb-src http://mirrors.163.com/debian/ jessie-proposed-updates main non-free contrib" >>/etc/apt/sources.list
+RUN apt-get update && apt-get install -y curl apt-transport-https && \
+  curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
+  echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 
-RUN apt-get update -qq && \
-    apt-get install -y build-essential \
-    default-libmysqlclient-dev \
-    nodejs 
-
+RUN apt-get update && apt-get install -y \
+  build-essential \
+  libpq-dev \
+  nodejs \
+  ruby \
+  ruby-dev \
+  tzdata \
+  yarn \
+  zlib1g-dev
+  
 RUN mkdir /webapp
 
 WORKDIR /webapp
