@@ -19,6 +19,8 @@ ADD Gemfile /webapp/Gemfile
 
 ADD Gemfile.lock /webapp/Gemfile.lock
 
+RUN gem source -a https://gems.ruby-china.com --remove https://rubygems.org/
+
 RUN gem install nokogiri -v '1.10.1' && \
   gem install mysql2 -v '0.5.2' && \
   gem install nio4r -v '2.3.1' && \
