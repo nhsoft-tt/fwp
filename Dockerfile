@@ -26,7 +26,7 @@ RUN apt-get update && apt-get install -y \
   tzdata \
   yarn \
   zlib1g-dev
-  
+
 RUN mkdir /webapp
 
 WORKDIR /webapp
@@ -39,7 +39,7 @@ RUN gem source -a https://gems.ruby-china.com --remove https://rubygems.org/
 
 RUN gem install bundler
 
-RUN bundle install
+RUN gem install sassc -v '2.0.1'
 
 # RUN gem install nokogiri -v '1.10.1' && \
 #   gem install mysql2 -v '0.5.2' && \
