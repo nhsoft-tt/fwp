@@ -35,8 +35,6 @@ COPY Gemfile /webapp/Gemfile
 
 COPY Gemfile.lock /webapp/Gemfile.lock
 
-RUN gem source -a https://gems.ruby-china.com --remove https://rubygems.org/
-
 RUN gem install bundler
 
 RUN gem install sassc -v '2.0.1'
