@@ -21,7 +21,7 @@ RUN apt-get update && apt-get install -y \
   build-essential \
   libpq-dev \
   nodejs \
-  ruby \
+  ruby -v '2.5.1' \
   ruby-dev \
   tzdata \
   yarn \
