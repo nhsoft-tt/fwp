@@ -65,8 +65,8 @@
 }
 .block2 {
   display: block;
-  padding: 40px 50px;
-  background: image-url("button.jpeg");
+  padding: 35px 50px;
+  background: #d9edf76e;
   width: 80%;
   text-align: center;
   margin: 50px auto;
@@ -91,4 +91,7 @@
 	-ms-flex-pack:center;
 	justify-content:center;
 	text-align:center;
+}
+.backImg2 {
+  background: image-url("button.jpeg");
 }
