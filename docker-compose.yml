@@ -6,10 +6,10 @@ services:
     container_name: docker-fwp-app
     env_file:
       - ./environments/.env
-    # command: bundle exec puma -C config/puma.rb
-    command: >
-      sh -c "bundle exec rake assets:precompile &&
-             bundle exec puma -C config/puma.rb"
+    command: bundle exec puma -C config/puma.rb
+    # command: >
+    #   sh -c "bundle exec rake assets:precompile &&
+    #          bundle exec puma -C config/puma.rb"
     volumes:
       - .:/webapp
       - public-data:/webapp/public

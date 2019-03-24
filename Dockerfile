@@ -8,7 +8,7 @@ FROM ruby:2.5.1
 
 RUN apt-get update -qq && \
   apt-get install -y build-essential \
-  libmysqlclient-dev \
+  default-libmysqlclient-dev \
   nodejs 
 
 RUN mkdir /webapp
@@ -18,8 +18,6 @@ WORKDIR /webapp
 COPY Gemfile /webapp/Gemfile
 
 COPY Gemfile.lock /webapp/Gemfile.lock
-
-RUN gem install bundler
 
 RUN gem install sassc -v '2.0.1'
 
