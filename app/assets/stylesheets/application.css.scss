@@ -13,7 +13,7 @@
 }
 .backImg {
   background: image-url("main.jpeg");
-  background-color: #eeeeee;
+  // background-color: #eeeeee;
   background-repeat: no-repeat;
   background-size: 100% 100%;
   height: 100vh;
@@ -65,8 +65,9 @@
 }
 .block2 {
   display: block;
-  padding: 35px 50px;
-  background: #d9edf76e;
+  padding: 30px 50px;
+  // background: #d9edf76e;
+  background: image-url("button.jpeg");
   width: 80%;
   text-align: center;
   margin: 50px auto;
@@ -93,5 +94,5 @@
 	text-align:center;
 }
 .backImg2 {
-  background: image-url("button.jpeg");
+  // background: image-url("button.jpeg");
 }
