@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_19_140736) do
+ActiveRecord::Schema.define(version: 20190319140736) do
 
-  create_table "case_results", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "case_results", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "case_id"
     t.text "result_array"
     t.text "path_array"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2019_03_19_140736) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "cases", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "cases", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "username"
     t.string "name"
     t.string "tag"
