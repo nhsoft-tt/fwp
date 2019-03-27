@@ -1,11 +1,11 @@
 development:
   adapter: mysql2
   encoding: utf8mb4
-  database: fwp_dev
+  database: fwp_production
   pool: 40
-  username: root
-  password: 
-  host: localhost
+  username: deploy
+  password: nhsoft123
+  host: 47.99.53.186
 
 staging:
   adapter: mysql2
