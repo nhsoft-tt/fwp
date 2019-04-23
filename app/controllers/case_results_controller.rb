@@ -33,6 +33,13 @@ class CaseResultsController < ApplicationController
     end
   end
 
+  def destroy
+    @case_result = CaseResult.find(params[:id])
+    @case_result.delete
+    flash[:success] = "删除成功"
+    redirect_to case_results_url
+  end
+
   private
 
     def case_result_params

@@ -436,12 +436,85 @@
               console.log(messages);
             case "M1":
               console.log(selectData1);
-              break;
-            case "M2":
-              console.log(selectData1); 
-              break;
+              if (data.E5_E6 == 0.1 && data.E6_M8 == 0.95 && data.E9_C14 == 0.9 ) {
+                // M-M6-E5-E6-M8-C6;M-M7-E9-C14;M-M7-C13
+                messages = messages.concat(["路线:中等强度地震(M)->燃气泄漏(M6)->无墙体破坏(E5)->通风系统良好(E6)->可燃气体浓度下降(M8)->较大经济损失,修复墙体(C6)"])
+                messages = messages.concat(["路线:中等强度地震(M)->其他管道破坏(M7)->关闭管道阀门有效(E9)->舱内管道破坏,事故不扩大(C14)"])
+                messages = messages.concat(["路线:中等强度地震(M)->其他管道破坏(M7)->可能造成管廊环境污染,经济损失较大(C13)"])
+                pages = pages.concat([".pageM1", ".pageM2", ".pageM3"])
+                results = results.concat(["较大经济损失,修复墙体", "舱内管道破坏,事故不扩大", "可能造成管廊环境污染,经济损失较大"])
+              } else if (data.E5_E6 == 0.1 && data.E6_E7 == 0.8 && data.E7_E8 == 0.3 && data.E8_C7 == 0.95) {
+                // M-M6-E5-E6-E7-E8-C7
+                messages = messages.concat(["路线:中等强度地震(M)->燃气泄漏(M6)->无墙体破坏(E5)->通风系统失效(E6)->无点火源(E7)->燃气供应源关闭(E8)->燃气舱内可燃气体浓度较少(C7)"])
+                pages = pages.concat([".pageM4"])
+                results = results.concat(["燃气舱内可燃气体浓度较少"])
+              } else if (data.E5_E6 == 0.1 && data.E6_E7 == 0.8 && data.E7_E8 == 0.3 && data.E8_C8 == 0.7) {
+                // M-M6-E5-E6-E7-E8-C8
+                messages = messages.concat(["路线:中等强度地震(M)->燃气泄漏(M6)->无墙体破坏(E5)->通风系统失效(E6)->无点火源(E7)->燃气供应源开启(E8)->燃气舱内有毒,可燃气体积聚(C8)"])
+                pages = pages.concat([".pageM5"])
+                results = results.concat(["燃气舱内有毒,可燃气体积聚"])
+              } else if (data.E5_E6 == 0.1 && data.E6_E7 == 0.8 && data.E7_M10 == 0.1 && data.E10_M12 == 0.95 && data.E11_C9 == 0.9) {
+                // M-M6-E5-E6-E7-M10-E10-M12-E11-C9
+                messages = messages.concat(["路线:中等强度地震(M)->燃气泄漏(M6)->无墙体破坏(E5)->通风系统失效(E6)->有点火源(E7)->火灾事故(M10)->防火隔离正常(E10)->区域性火灾(M12)->自动灭火成功(E11)->单个防火分区中度破坏,无人员伤亡(C9)"])
+                pages = pages.concat([".pageM6"])
+                results = results.concat(["单个防火分区中度破坏,无人员伤亡"])
+              } else if (data.E5_E6 == 0.1 && data.E6_E7 == 0.8 && data.E7_M10 == 0.1 && data.E10_M12 == 0.95 && data.E11_C10 == 0.7) {
+                // M-M6-E5-E6-E7-M10-E10-M12-E11-C10
+                messages = messages.concat(["路线:中等强度地震(M)->燃气泄漏(M6)->无墙体破坏(E5)->通风系统失效(E6)->有点火源(E7)->火灾事故(M10)->防火隔离正常(E10)->区域性火灾(M12)->自动灭火失败(E11)->单个防火分区严重破坏,无人员伤亡(C10)"])
+                pages = pages.concat([".pageM7"])
+                results = results.concat(["单个防火分区严重破坏,无人员伤亡"])
+              } else if (data.E5_E6 == 0.1 && data.E6_E7 == 0.8 && data.E7_M10 == 0.1 && data.E10_M13 == 0.8 && data.E12_M14 == 0.9) {
+                // M-M6-E5-E6-E7-M10-E10-M13-E12-M14-C11
+                messages = messages.concat(["路线:中等强度地震(M)->燃气泄漏(M6)->无墙体破坏(E5)->通风系统失效(E6)->有点火源(E7)->火灾事故(M10)->防火隔离失效(E10)->火灾蔓延(M13)->应急救援及时(E12)->燃气舱内火灾(M4)->燃气舱破坏,可能造成少量工作人员伤亡(C11)"])
+                pages = pages.concat([".pageM8"])
+                results = results.concat(["燃气舱破坏,可能造成少量工作人员伤亡"])
+              } else if (data.E5_E6 == 0.1 && data.E6_E7 == 0.8 && data.E7_M10 == 0.1 && data.E10_M13 == 0.8 && data.E12_C12 == 0.7) {
+                // M-M6-E5-E6-E7-M10-E10-M13-E12-C12
+                messages = messages.concat(["路线:中等强度地震(M)->燃气泄漏(M6)->无墙体破坏(E5)->通风系统失效(E6)->有点火源(E7)->火灾事故(M10)->防火隔离失效(E10)->火灾蔓延(M13)->应急救援迟滞(E12)->经济损失大,可能造成大量工作人员伤亡(C12)"])
+                pages = pages.concat([".pageM9"])
+                results = results.concat(["经济损失大,可能造成大量工作人员伤亡"])
+              } else if (data.E5_M9 == 0.3 && data.E9_M11 == 0.7 && data.E13_C15 == 0.9) {
+                // M-M6-E5-M9-E9-M11-E13-C15
+                messages = messages.concat(["路线:中等强度地震(M)->其他管道破坏(M7)->关闭管道阀门无效(E9)->耦合管道事故(M11)->人群疏散及时(E13)->经济损失严重,中等程度人员伤亡(C15)"])
+                pages = pages.concat([".pageM10"])
+                results = results.concat(["经济损失严重,中等程度人员伤亡"])
+              } else if (data.E5_M9 == 0.3 && data.E9_M11 == 0.7 && data.E13_C16 == 0.7) {
+                // M-M6-E5-M9-E9-M11-E13-C16
+                messages = messages.concat(["路线:中等强度地震(M)->其他管道破坏(M7)->关闭管道阀门无效(E9)->耦合管道事故(M11)->人群疏散不及时(E13)->经济损失严重,大量人员伤亡(C16)"])
+                pages = pages.concat([".pageM11"])
+                results = results.concat(["经济损失严重,大量人员伤亡"])
+              }
+              if (messages === []) {
+                messages = ["请检查数据文件"]
+              } else {
+                localStorage.setItem('pages', pages);
+                console.log(pages);
+                for (const page in pages) {
+                  $('' + pages[page]).prepend('<span class="tmpPage">' + (parseInt(page) + 1) +'、</span>')
+                  $('' + pages[page]).show();
+                }      
+                result_array = results.filter(function(item, index, results) { return results.indexOf(item, 0) === index; })          
+                $.ajax({
+                  data: { 
+                    case_result: {
+                      case_id: case_id,
+                      result_array: result_array,
+                      path_array: messages,
+                      case_type: selectData1
+                    }
+                   },
+                  type: "POST",
+                  url: "/case_results",
+                  success: function(result) {
+                    console.log(result.message);
+                  }
+                })
+              }
+              console.log(messages);
+              alert(messages)
             case "L":
               console.log(selectData1);
+              console.log(messages);
           }
         }
       }

@@ -45,6 +45,10 @@ class CasesController < ApplicationController
     render json: { status: 'ok', data: JSON.parse(@case.file_body) }
   end
 
+  def get_current_path
+    
+  end
+
   private
 
     def case_params

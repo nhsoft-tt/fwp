@@ -44,7 +44,7 @@
                     <th>地震强度</th>
                     <th style="width: 18%;">灾害后果</th>
                     <th style="width: 50%;">灾害演化路径</th>
-                    <%# <th>操作</th> %>
+                    <th>操作</th>
                 </tr>
               </thead>
             <tbody>
@@ -56,7 +56,7 @@
                   <td><%= item.case_type_view %></td>
                   <td><%= item.result_array.join('<br>').html_safe %></td>
                   <td><%= item.path_array.join('<br>').html_safe %></td>
-                  <%# <td></td> %>
+                  <td><%= link_to '删除', item, method: :delete, data: { confirm: '确定删除?' }, class: "btn btn-primary btn-block" %></td>
                 </tr>
               <% end %>
             </tbody>
